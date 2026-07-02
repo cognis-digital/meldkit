@@ -2,6 +2,17 @@
 
 Adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] — 2026-07-02
+
+### Added
+- **Captured-media (photo/video) exploitation** (`vision.py`) with a pluggable
+  backend: a deterministic offline provider that runs CA-CFAR small-target
+  detection (finds a swimmer / small craft / person as a 1–2 pixel target) and
+  returns a source-faithful description, plus an optional local Ollama multimodal
+  provider (llava). `analyze_media` turns a frame into a graph-ready report;
+  CLI `analyze-image`.
+- `smalltarget.py` CA-CFAR detector (shared design with Vigil/Lookout).
+
 ## [0.2.0] — 2026-07-01
 
 ### Added

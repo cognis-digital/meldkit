@@ -10,8 +10,8 @@ open-weight model served via Ollama (self-hosted, no cloud egress).
 (c) 2026 Cognis Digital LLC (Wyoming, USA). Source-available under COCL-1.0.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 __all__ = [
     "model", "extract", "resolve", "index", "graph",
-    "agents", "llm", "stix", "report",
+    "agents", "llm", "vision", "smalltarget", "stix", "report",
 ]

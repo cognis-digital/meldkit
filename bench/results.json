@@ -24,32 +24,32 @@
     {
       "reports": 500,
       "mentions": 3000,
-      "extract_s": 0.0218,
-      "resolve_s": 0.005,
-      "graph_s": 0.0289,
-      "index_s": 0.0075,
-      "query_ms": 1.965,
-      "reports_per_s": 7916
+      "extract_s": 0.0176,
+      "resolve_s": 0.0072,
+      "graph_s": 0.0444,
+      "index_s": 0.0112,
+      "query_ms": 3.13,
+      "reports_per_s": 6225
     },
     {
       "reports": 2000,
       "mentions": 12000,
-      "extract_s": 0.063,
-      "resolve_s": 0.018,
-      "graph_s": 0.1279,
-      "index_s": 0.0275,
-      "query_ms": 7.483,
-      "reports_per_s": 8459
+      "extract_s": 0.0922,
+      "resolve_s": 0.0515,
+      "graph_s": 0.2457,
+      "index_s": 0.0454,
+      "query_ms": 15.576,
+      "reports_per_s": 4600
     },
     {
       "reports": 8000,
       "mentions": 48000,
-      "extract_s": 0.2399,
-      "resolve_s": 0.0872,
-      "graph_s": 0.4856,
-      "index_s": 0.1243,
-      "query_ms": 29.043,
-      "reports_per_s": 8537
+      "extract_s": 0.3212,
+      "resolve_s": 0.2287,
+      "graph_s": 1.0462,
+      "index_s": 0.3005,
+      "query_ms": 64.949,
+      "reports_per_s": 4218
     }
   ],
   "feeds": {

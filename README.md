@@ -21,6 +21,7 @@
 - 🔎 **Retrieval** — stdlib TF-IDF search returning source-cited passages.
 - 🧠 **Multi-agent orchestration** — a deterministic tool loop (retrieve → extract → correlate → summarize) with a full **execution trace** for auditability.
 - 🔌 **Pluggable reasoning** — deterministic offline provider by default (no model needed); optional **local open-weight model via Ollama** (self-hosted, no cloud egress).
+- 📷 **Captured-media exploitation** — pluggable vision backend: deterministic CA-CFAR small-target detection (finds a swimmer/small craft/person as a 1–2 pixel target) or an optional local multimodal model; frames become graph-ready reports.
 - 📤 **STIX 2.1 export** — deterministic bundles with source references.
 - 🔒 **Offline / air-gap** — pure Python stdlib, **zero dependencies**.
 

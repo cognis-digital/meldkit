@@ -100,6 +100,20 @@ def cmd_sources_ingest(args):
     return 0
 
 
+def cmd_analyze_image(args):
+    """Captured-media exploitation demo: small-target detection over a frame,
+    materialized as a report and fused into the knowledge graph."""
+    from . import smalltarget, vision
+    img, truth = smalltarget.demo_scene()
+    report = vision.analyze_media(img, source="captured-media", ts="2026-07-02T00:00:00Z", k=args.k)
+    print(f"[captured-media] {report['text']}")
+    print(f"targets: {len(report['targets'])} (planted: {len(truth)})")
+    orch = Orchestrator([report], {})
+    res = orch.answer("small object person vessel target", k=1)
+    print(f"fused into graph: {len(orch.graph.entities)} entities; cited {res['citations']}")
+    return 0
+
+
 def cmd_demo_live(args):
     client = HttpClient(cache_dir=args.cache, offline=args.offline)
     reports, errors = vfeeds.collect(client, limit_per=args.limit)
@@ -166,6 +180,10 @@ def build_parser():
     ing.add_argument("--cache", default=".cache")
     ing.add_argument("--limit", type=int, default=50)
     ing.set_defaults(func=cmd_sources_ingest)
+
+    ai = sub.add_parser("analyze-image", help="captured-media small-target exploitation demo")
+    ai.add_argument("--k", type=float, default=5.0)
+    ai.set_defaults(func=cmd_analyze_image)
 
     dl = sub.add_parser("demo-live", help="ingest live feeds and answer a query")
     dl.add_argument("--query", default="maritime narcotics trafficking vessel")
