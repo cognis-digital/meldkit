@@ -2,8 +2,8 @@ import csv
 import io
 import json
 
-from cognis_vanguard.fusion import entities, interop
-from cognis_vanguard.fusion.schema import Observation
+from obsidia.fusion import entities, interop
+from obsidia.fusion.schema import Observation
 
 
 def _sample():

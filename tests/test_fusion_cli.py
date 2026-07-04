@@ -1,6 +1,6 @@
 import json
 
-from cognis_vanguard import cli
+from obsidia import cli
 
 
 def test_demo_fusion_runs(capsys):

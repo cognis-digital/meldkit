@@ -1,5 +1,5 @@
-from cognis_vanguard import smalltarget
-from cognis_vanguard.vision import (
+from obsidia import smalltarget
+from obsidia.vision import (
     DeterministicVisionProvider, OllamaVisionProvider, analyze_media,
 )
 

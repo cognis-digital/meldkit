@@ -1,7 +1,7 @@
 import os
 
-from cognis_vanguard import extract
-from cognis_vanguard.agents import Orchestrator
+from obsidia import extract
+from obsidia.agents import Orchestrator
 
 D = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data"))
 

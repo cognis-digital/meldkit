@@ -1,6 +1,6 @@
-from cognis_vanguard.agents import Orchestrator
-from cognis_vanguard.sources import adapters, ingest
-from cognis_vanguard.sources.catalog import CATALOG
+from obsidia.agents import Orchestrator
+from obsidia.sources import adapters, ingest
+from obsidia.sources.catalog import CATALOG
 
 GDELT = '{"articles":[{"url":"http://x/1","title":"Coca seizure at port near go-fast vessel","domain":"news.example","seendate":"20260101T000000Z"}]}'
 RELIEFWEB = '{"data":[{"id":1,"fields":{"title":"Flood displaces thousands in region","date":{"created":"2026-01-01T00:00:00+00:00"}}}]}'

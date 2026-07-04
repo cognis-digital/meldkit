@@ -1,4 +1,4 @@
-from cognis_vanguard.fusion.schema import (
+from obsidia.fusion.schema import (
     INT_DISCIPLINES, Observation, haversine_km, observations_to_reports, validate,
 )
 

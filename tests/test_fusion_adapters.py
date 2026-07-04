@@ -1,5 +1,5 @@
-from cognis_vanguard.fusion import adapters_int
-from cognis_vanguard.fusion.adapters_int import (
+from obsidia.fusion import adapters_int
+from obsidia.fusion.adapters_int import (
     geoint, humint, masint, normalize, osint, sigint_meta, structured,
 )
 

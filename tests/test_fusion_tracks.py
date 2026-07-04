@@ -1,5 +1,5 @@
-from cognis_vanguard.fusion import entities, tracks
-from cognis_vanguard.fusion.schema import Observation
+from obsidia.fusion import entities, tracks
+from obsidia.fusion.schema import Observation
 
 
 def _o(entity, ts, lat, lon, disc="GEOINT", src="s"):

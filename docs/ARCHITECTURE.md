@@ -19,7 +19,7 @@
 | `llm` | Pluggable providers: deterministic (default) or Ollama (optional). |
 | `stix` | STIX 2.1 export with deterministic IDs + source references. |
 | `report` | Human-readable / JSON products. |
-| `cli` | `cognis-vanguard` entry point. |
+| `cli` | `obsidia` entry point. |
 
 ## Principles
 

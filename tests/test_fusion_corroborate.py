@@ -1,5 +1,5 @@
-from cognis_vanguard.fusion import corroborate, entities
-from cognis_vanguard.fusion.schema import Observation
+from obsidia.fusion import corroborate, entities
+from obsidia.fusion.schema import Observation
 
 
 def _o(entity, disc, src, ts="2026-01-01T00:00:00Z", lat=None, lon=None,

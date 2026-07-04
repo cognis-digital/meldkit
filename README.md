@@ -1,4 +1,4 @@
-<h1 align="center">🟣 Cognis Vanguard</h1>
+<h1 align="center">🟣 Obsidia</h1>
 <p align="center"><b>Self-hosted, edge-capable multi-INT fusion &amp; agent orchestration</b><br>
 <i>Turn heterogeneous reporting into a source-cited, provenance-tracked picture — offline, at the tactical edge.</i></p>
 
@@ -27,7 +27,7 @@
 
 ## 🧩 Multi-INT fusion & Common Operating Picture (v0.4)
 
-The `cognis_vanguard.fusion` layer normalizes **six INT disciplines** into one
+The `obsidia.fusion` layer normalizes **six INT disciplines** into one
 common `Observation` schema and fuses them into a source-cited, corroboration-
 graded **Common Operating Picture** — for **situational awareness and force
 protection only**.
@@ -48,10 +48,10 @@ protection only**.
   entity schema** (no MIL-STD-2525/APP-6 codes — descriptive, not a targeting overlay).
 
 ```bash
-cognis-vanguard fuse --scenario data/scenario_maritime.json --html cop.html  # COP + dashboard
-cognis-vanguard dossier --entity Nightjar                                    # entity dossier
-cognis-vanguard export --format stix > out.stix.json                         # interop
-cognis-vanguard demo-fusion                                                  # one-shot demo
+obsidia fuse --scenario data/scenario_maritime.json --html cop.html  # COP + dashboard
+obsidia dossier --entity Nightjar                                    # entity dossier
+obsidia export --format stix > out.stix.json                         # interop
+obsidia demo-fusion                                                  # one-shot demo
 ```
 
 > **Not targeting.** This fuses intelligence for *understanding* and *force
@@ -68,28 +68,28 @@ graph, and retrieval. Fetches cache to disk for **offline / air-gap** replay.
 See [`docs/FEEDS.md`](docs/FEEDS.md).
 
 ```bash
-cognis-vanguard sources-stats                              # feed coverage
-cognis-vanguard sources-ingest --feeds usgs_significant,feodo_iocs
-cognis-vanguard demo-live --query "maritime narcotics trafficking vessel"
+obsidia sources-stats                              # feed coverage
+obsidia sources-ingest --feeds usgs_significant,feodo_iocs
+obsidia demo-live --query "maritime narcotics trafficking vessel"
 ```
 
 ## Quick start
 
 ```bash
-git clone https://github.com/cognis-digital/cognis-vanguard
-cd cognis-vanguard
-python -m cognis_vanguard demo --query "who controls wallet addr-B1" --stix out.stix.json
+git clone https://github.com/cognis-digital/obsidia
+cd obsidia
+python -m obsidia demo --query "who controls wallet addr-B1" --stix out.stix.json
 ```
 
 ```bash
-cognis-vanguard query --reports data/sample_reports.json --gazetteer data/gazetteer.json \
+obsidia query --reports data/sample_reports.json --gazetteer data/gazetteer.json \
                       --q "vessel rendezvous grey ferry logistics"
-cognis-vanguard correlate --reports data/sample_reports.json --gazetteer data/gazetteer.json --value addr-B1
-cognis-vanguard graph --reports data/sample_reports.json --gazetteer data/gazetteer.json --stix
+obsidia correlate --reports data/sample_reports.json --gazetteer data/gazetteer.json --value addr-B1
+obsidia graph --reports data/sample_reports.json --gazetteer data/gazetteer.json --stix
 ```
 
 ```python
-from cognis_vanguard.agents import Orchestrator
+from obsidia.agents import Orchestrator
 orch = Orchestrator(reports, gazetteer)          # optional: provider=OllamaProvider("llama3")
 result = orch.answer("who controls wallet addr-B1")   # source-cited, with execution trace
 ```

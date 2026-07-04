@@ -1,6 +1,6 @@
 # Limitations & Responsible Use
 
-Cognis Vanguard is an **analytic aid**, not an autonomous decision-maker.
+Obsidia is an **analytic aid**, not an autonomous decision-maker.
 
 ## Scope
 - Extraction is regex + gazetteer based: excellent on structured indicators and

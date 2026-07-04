@@ -1,4 +1,4 @@
-from cognis_vanguard.llm import DeterministicProvider, OllamaProvider
+from obsidia.llm import DeterministicProvider, OllamaProvider
 
 
 def test_deterministic_provider_extracts_relevant_sentence():

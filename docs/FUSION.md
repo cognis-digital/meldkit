@@ -1,6 +1,6 @@
 # Multi-INT Fusion Layer
 
-The `cognis_vanguard.fusion` package turns heterogeneous intelligence reporting
+The `obsidia.fusion` package turns heterogeneous intelligence reporting
 into one source-cited, corroboration-graded **Common Operating Picture (COP)**
 for situational awareness and force protection.
 
@@ -98,24 +98,24 @@ transparent heuristic, not an official conversion.
 
 ```bash
 # Ingest a scenario and print the COP; optionally write the HTML dashboard.
-cognis-vanguard fuse --scenario data/scenario_maritime.json --html cop.html
+obsidia fuse --scenario data/scenario_maritime.json --html cop.html
 
 # Per-entity dossiers (all, or filtered by name/id).
-cognis-vanguard dossier --entity Nightjar
+obsidia dossier --entity Nightjar
 
 # Interop exports.
-cognis-vanguard export --format stix    > out.stix.json
-cognis-vanguard export --format csv     > observations.csv
-cognis-vanguard export --format symbols > entities.symbols.json
+obsidia export --format stix    > out.stix.json
+obsidia export --format csv     > observations.csv
+obsidia export --format symbols > entities.symbols.json
 
 # One-shot demo on the bundled maritime scenario.
-cognis-vanguard demo-fusion
+obsidia demo-fusion
 ```
 
 Or from Python:
 
 ```python
-from cognis_vanguard.fusion import scenario, cop, interop
+from obsidia.fusion import scenario, cop, interop
 res = scenario.run_scenario(scenario.load_scenario("data/scenario_maritime.json"))
 print(cop.render_text(res))
 open("cop.html", "w", encoding="utf-8").write(cop.render_html(res))

@@ -1,5 +1,5 @@
-from cognis_vanguard.fusion import entities
-from cognis_vanguard.fusion.schema import Observation
+from obsidia.fusion import entities
+from obsidia.fusion.schema import Observation
 
 
 def _o(entity, etype="vessel", disc="GEOINT", src="s", ts="2026-01-01T00:00:00Z", **attrs):

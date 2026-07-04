@@ -1,7 +1,7 @@
 import os
 
-from cognis_vanguard import extract
-from cognis_vanguard.resolve import resolve
+from obsidia import extract
+from obsidia.resolve import resolve
 
 D = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data"))
 

@@ -14,7 +14,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from cognis_vanguard.fusion import adapters_int, entities  # noqa: E402
+from obsidia.fusion import adapters_int, entities  # noqa: E402
 
 
 def main():

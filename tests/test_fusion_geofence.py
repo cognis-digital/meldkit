@@ -1,5 +1,5 @@
-from cognis_vanguard.fusion import geofence
-from cognis_vanguard.fusion.schema import Observation
+from obsidia.fusion import geofence
+from obsidia.fusion.schema import Observation
 
 
 def _o(entity, lat, lon, ts="2026-01-01T00:00:00Z", etype="vessel"):

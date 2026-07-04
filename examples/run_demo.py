@@ -5,8 +5,8 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from cognis_vanguard import extract, report, stix  # noqa: E402
-from cognis_vanguard.agents import Orchestrator  # noqa: E402
+from obsidia import extract, report, stix  # noqa: E402
+from obsidia.agents import Orchestrator  # noqa: E402
 
 D = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
 

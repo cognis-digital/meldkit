@@ -1,7 +1,7 @@
 import os
 
-from cognis_vanguard import extract
-from cognis_vanguard.index import TfidfIndex, tokenize
+from obsidia import extract
+from obsidia.index import TfidfIndex, tokenize
 
 D = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data"))
 

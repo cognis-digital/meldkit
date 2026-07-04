@@ -1,6 +1,6 @@
 # Live Feeds
 
-Cognis Vanguard integrates **14 keyless live feeds** that materialize into
+Obsidia integrates **14 keyless live feeds** that materialize into
 reports (`{id, timestamp, source, text}`) and flow through the full pipeline
 (extraction → resolution → knowledge graph → retrieval → orchestration). Every
 fetch caches to disk, so ingestion also runs **offline / air-gapped**.
@@ -26,16 +26,16 @@ fetch caches to disk, so ingestion also runs **offline / air-gapped**.
 ## Usage
 
 ```bash
-cognis-vanguard sources-list                       # browse feeds
-cognis-vanguard sources-stats                       # coverage json
-cognis-vanguard sources-ingest --cache .cache       # fetch -> reports
-cognis-vanguard sources-ingest --offline --cache .cache   # air-gapped replay
-cognis-vanguard demo-live --query "go-fast vessel near port"   # ingest + answer
+obsidia sources-list                       # browse feeds
+obsidia sources-stats                       # coverage json
+obsidia sources-ingest --cache .cache       # fetch -> reports
+obsidia sources-ingest --offline --cache .cache   # air-gapped replay
+obsidia demo-live --query "go-fast vessel near port"   # ingest + answer
 ```
 
 ```python
-from cognis_vanguard.sources import HttpClient, collect
-from cognis_vanguard.agents import Orchestrator
+from obsidia.sources import HttpClient, collect
+from obsidia.agents import Orchestrator
 reports, errors = collect(HttpClient(cache_dir=".cache"))
 orch = Orchestrator(reports, {})
 print(orch.answer("maritime narcotics trafficking")["answer"])
