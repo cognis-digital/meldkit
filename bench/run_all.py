@@ -9,7 +9,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from bench import benchmark, evaluate  # noqa: E402
+from bench import benchmark, evaluate, fusion_evaluate  # noqa: E402
 from cognis_vanguard.sources import ingest as vfeeds  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -20,6 +20,8 @@ def build_results():
     return {
         "accuracy": evaluate.evaluate(),
         "performance": benchmark.benchmark(),
+        "fusion_accuracy": fusion_evaluate.evaluate(),
+        "fusion_performance": fusion_evaluate.benchmark(),
         "feeds": vfeeds.stats(),
         "environment": {
             "python": platform.python_version(),
@@ -58,6 +60,31 @@ def render_md(res) -> str:
         L.append(f"| {row['reports']:,} | {row['mentions']:,} | {row['extract_s']} | {row['resolve_s']} | "
                  f"{row['graph_s']} | {row['index_s']} | {row['query_ms']} | {row['reports_per_s']:,} |")
     L.append("")
+    fa = res.get("fusion_accuracy")
+    if fa:
+        L.append("## Multi-INT fusion accuracy (bundled synthetic scenario)\n")
+        L.append(f"Fused {fa['dataset']['observations']} observations across "
+                 f"{fa['dataset']['disciplines']} INT disciplines into "
+                 f"{fa['dataset']['entities']} resolved entities.\n")
+        L.append("| Fusion task | Metric |")
+        L.append("|---|---|")
+        L.append(f"| Cross-source entity resolution accuracy | {fa['entity_resolution_accuracy']:.3f} |")
+        L.append(f"| Corroboration band accuracy | {fa['corroboration_band_accuracy']:.3f} |")
+        L.append(f"| Cross-INT fusion correct (IMO-linked vessel) | {fa['cross_source_fusion_correct']} |")
+        L.append(f"| Force-protection keep-out recall | {fa['force_protection_recall']:.3f} |")
+        L.append(f"| Contradiction precision (clean scenario) | {fa['contradiction_precision_ok']} |")
+        L.append("")
+        fp = res.get("fusion_performance")
+        if fp:
+            L.append("### Fusion performance (single-thread, stdlib only)\n")
+            L.append("| Observations | Entities | Resolve (s) | Assess (s) | Geofence (s) | Obs/s |")
+            L.append("|---:|---:|---:|---:|---:|---:|")
+            for row in fp:
+                L.append(f"| {row['observations']:,} | {row['entities']:,} | "
+                         f"{row['resolve_s']} | {row['assess_s']} | {row['geofence_s']} | "
+                         f"{row['observations_per_s']:,} |")
+            L.append("")
+
     f = res.get("feeds")
     if f:
         L.append("## Live feed coverage\n")

@@ -114,6 +114,85 @@ def cmd_analyze_image(args):
     return 0
 
 
+def _scenario_result(path):
+    from .fusion import scenario as scn
+    return scn.run_scenario(scn.load_scenario(path))
+
+
+def cmd_fuse(args):
+    """Ingest a multi-INT scenario and produce the Common Operating Picture."""
+    from .fusion import cop
+    res = _scenario_result(args.scenario or _data("scenario_maritime.json"))
+    print(cop.render_text(res))
+    if args.html:
+        with open(args.html, "w", encoding="utf-8") as f:
+            f.write(cop.render_html(res))
+        print(f"\n[+] COP dashboard (self-contained HTML) -> {args.html}")
+    return 0
+
+
+def cmd_dossier(args):
+    """Emit per-entity dossiers from a fused scenario."""
+    import json as _json
+    from .fusion import cop
+    res = _scenario_result(args.scenario or _data("scenario_maritime.json"))
+    if args.entity:
+        matches = [e for e in res["entities"]
+                   if args.entity.lower() in e.canonical.lower() or e.id == args.entity]
+        if not matches:
+            print(f"no entity matching {args.entity!r}")
+            return 1
+        out = [cop.dossier(res, matches[0].id)]
+    else:
+        out = cop.all_dossiers(res)
+    print(_json.dumps(out, indent=2))
+    return 0
+
+
+def cmd_export(args):
+    """Export fused observations/entities as json | csv | stix | symbols."""
+    import json as _json
+    from .fusion import interop
+    res = _scenario_result(args.scenario or _data("scenario_maritime.json"))
+    obs, ents = res["observations"], res["entities"]
+    if args.format == "json":
+        out = interop.to_json(obs, ents, res["assessment"])
+    elif args.format == "csv":
+        out = interop.observations_to_csv(obs)
+    elif args.format == "entities-csv":
+        out = interop.entities_to_csv(ents)
+    elif args.format == "stix":
+        out = interop.to_stix_json(obs, ents)
+    elif args.format == "symbols":
+        out = _json.dumps(interop.to_symbol_agnostic(ents), indent=2)
+    else:
+        out = interop.to_json(obs, ents, res["assessment"])
+    if args.out:
+        with open(args.out, "w", encoding="utf-8") as f:
+            f.write(out)
+        print(f"[+] {args.format} export -> {args.out}")
+    else:
+        print(out)
+    return 0
+
+
+def cmd_demo_fusion(args):
+    """Full multi-INT fusion demo on the bundled maritime scenario."""
+    from .fusion import cop, interop
+    res = _scenario_result(_data("scenario_maritime.json"))
+    print(cop.render_text(res))
+    top = res["entities"][0]
+    d = cop.dossier(res, top.id)
+    print(f"\nDossier — {d['entity']['canonical']}: "
+          f"corroboration={d['corroboration']['band']}, "
+          f"track_points={(d['track'] or {}).get('point_count', 0)}, "
+          f"anomalies={len(d['anomalies'])}")
+    bundle = interop.to_stix(res["observations"], res["entities"])
+    print(f"Interop: STIX bundle has {len(bundle['objects'])} objects; "
+          f"symbol-agnostic export has {len(interop.to_symbol_agnostic(res['entities'])['entities'])} entities")
+    return 0
+
+
 def cmd_demo_live(args):
     client = HttpClient(cache_dir=args.cache, offline=args.offline)
     reports, errors = vfeeds.collect(client, limit_per=args.limit)
@@ -184,6 +263,26 @@ def build_parser():
     ai = sub.add_parser("analyze-image", help="captured-media small-target exploitation demo")
     ai.add_argument("--k", type=float, default=5.0)
     ai.set_defaults(func=cmd_analyze_image)
+
+    fz = sub.add_parser("fuse", help="ingest a multi-INT scenario -> Common Operating Picture")
+    fz.add_argument("--scenario", help="scenario JSON (default: bundled maritime sample)")
+    fz.add_argument("--html", help="write a self-contained COP dashboard to this path")
+    fz.set_defaults(func=cmd_fuse)
+
+    ds = sub.add_parser("dossier", help="per-entity dossiers from a fused scenario")
+    ds.add_argument("--scenario")
+    ds.add_argument("--entity", help="filter to entities matching this name/id")
+    ds.set_defaults(func=cmd_dossier)
+
+    ex = sub.add_parser("export", help="export fused data (json|csv|entities-csv|stix|symbols)")
+    ex.add_argument("--scenario")
+    ex.add_argument("--format", default="json",
+                    choices=["json", "csv", "entities-csv", "stix", "symbols"])
+    ex.add_argument("--out")
+    ex.set_defaults(func=cmd_export)
+
+    df = sub.add_parser("demo-fusion", help="full multi-INT fusion demo on bundled scenario")
+    df.set_defaults(func=cmd_demo_fusion)
 
     dl = sub.add_parser("demo-live", help="ingest live feeds and answer a query")
     dl.add_argument("--query", default="maritime narcotics trafficking vessel")

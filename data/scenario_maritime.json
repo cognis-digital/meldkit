@@ -1,0 +1,35 @@
+{
+  "name": "Coastal Maritime Domain Awareness (synthetic)",
+  "note": "All data synthetic. Defensive maritime situational awareness / force-protection sample. No targeting content.",
+  "sources": {
+    "osint": [
+      {"source": "portnews", "timestamp": "2026-02-01T06:10:00Z", "title": "MV Nightjar departed anchorage overnight, no manifest filed", "entity": "MV Nightjar", "entity_type": "vessel", "url": "http://news.example/1"},
+      {"source": "socialscan", "timestamp": "2026-02-02T21:40:00Z", "title": "Small go-fast craft reported loitering off the coast near the naval support pier", "entity": "Unknown Small Craft", "entity_type": "vessel"},
+      {"source": "portnews", "timestamp": "2026-02-03T08:00:00Z", "title": "Grey Ferry Logistics chartered MV Nightjar for a coastal transit", "entity": "Grey Ferry Logistics", "entity_type": "org"}
+    ],
+    "geoint": [
+      {"source": "sat-track", "timestamp": "2026-02-01T07:00:00Z", "entity": "MV Nightjar", "entity_type": "vessel", "lat": 9.281, "lon": -79.921, "speed_kn": 8, "heading": 270, "imo": "9111111"},
+      {"source": "sat-track", "timestamp": "2026-02-01T13:00:00Z", "entity": "MV Nightjar", "entity_type": "vessel", "lat": 9.310, "lon": -79.985, "speed_kn": 7, "heading": 285, "imo": "9111111"},
+      {"source": "sat-track", "timestamp": "2026-02-02T07:05:00Z", "entity": "Nightjar", "entity_type": "vessel", "lat": 9.331, "lon": -80.010, "speed_kn": 6, "heading": 300, "imo": "9111111"},
+      {"source": "coastal-radar", "timestamp": "2026-02-02T21:35:00Z", "entity": "Small Craft A", "entity_type": "vessel", "lat": 9.350, "lon": -80.055, "speed_kn": 22, "heading": 90},
+      {"source": "coastal-radar", "timestamp": "2026-02-02T22:15:00Z", "entity": "Small Craft A", "entity_type": "vessel", "lat": 9.352, "lon": -80.052, "speed_kn": 2, "heading": 0}
+    ],
+    "sigint": [
+      {"source": "rf-collect", "timestamp": "2026-02-01T12:58:00Z", "emitter_id": "EM-4471", "freq_band": "VHF", "bearing": 268, "lat": 9.309, "lon": -79.984, "link": "shore-relay-3"},
+      {"source": "rf-collect", "timestamp": "2026-02-02T21:33:00Z", "emitter_id": "EM-4471", "freq_band": "VHF", "bearing": 95, "lat": 9.351, "lon": -80.056, "content": "IGNORED-not-parsed"}
+    ],
+    "humint": [
+      {"source": "port-liaison", "source_id": "H-22", "timestamp": "2026-02-03T09:15:00Z", "report": "A dock worker states Grey Ferry Logistics crews were seen loading unmarked containers onto the Nightjar before an unscheduled night departure.", "entity": "Grey Ferry Logistics", "entity_type": "org", "reliability": "C", "credibility": "3"}
+    ],
+    "masint": [
+      {"sensor": "acoustic-array-2", "phenomenology": "acoustic", "measurement": 138, "unit": "dB", "timestamp": "2026-02-02T21:34:00Z", "lat": 9.351, "lon": -80.054, "entity": "Small Craft A", "entity_type": "vessel"}
+    ],
+    "structured": [
+      {"source": "ais-registry", "timestamp": "2026-02-01T00:00:00Z", "entity": "MV Nightjar", "entity_type": "vessel", "imo": "9111111", "flag_state": "Panama", "length_m": 58}
+    ]
+  },
+  "zones": [
+    {"name": "Naval Support Pier (keep-out 3km)", "lat": 9.353, "lon": -80.050, "radius_km": 3.0, "kind": "keep-out", "note": "friendly-force protection radius"},
+    {"name": "Coastal AOI", "lat": 9.31, "lon": -79.98, "radius_km": 12.0, "kind": "area-of-interest", "note": "maritime domain awareness zone"}
+  ]
+}

@@ -2,6 +2,49 @@
 
 Adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] — 2026-07-03
+
+### Added
+- **Multi-INT fusion layer** (`cognis_vanguard.fusion`), additive and offline:
+  - **Common `Observation` schema** (`schema.py`) that six INT disciplines
+    normalize to (OSINT / SIGINT-metadata / GEOINT / HUMINT / MASINT / IMINT /
+    STRUCTURED), with deterministic BLAKE2b ids and a down-projection to the
+    core report schema. **SIGINT is metadata-only** — the adapter drops any
+    content field it is handed.
+  - **INT-source adapters** (`adapters_int.py`) for each discipline (synthetic
+    data only).
+  - **Admiralty-style grading** (`admiralty.py`): source-reliability ×
+    info-credibility → per-observation confidence.
+  - **Cross-source entity resolution + de-confliction** (`entities.py`) via
+    shared identifiers, alias/substring, and token-set name similarity;
+    de-confliction surfaces identity ambiguity for analyst review.
+  - **Corroboration scoring + contradiction detection** (`corroborate.py`):
+    bands strong→single-source; spatial-implausible-move and attribute-conflict
+    flags.
+  - **Track & pattern analytics** (`tracks.py`): track association,
+    pattern-of-life, outlier-resistant (median/MAD) anomaly detection, and
+    snapshot change detection — for situational awareness / force protection.
+  - **Geofence / zone alerting** (`geofence.py`): keep-out / restricted / AOI
+    zones, proximity/inside alerts, dwell (loiter) indications.
+  - **Common Operating Picture** (`cop.py`): fusion timeline, entity dossiers,
+    and a self-contained HTML COP dashboard (inline SVG map, **no JS/CDN**).
+  - **Interop** (`interop.py`): JSON, CSV, STIX 2.1-like bundles, and a
+    NATO-symbol-agnostic entity schema (no MIL-STD-2525/APP-6 codes).
+  - **Scenario runner** (`scenario.py`) + two bundled synthetic scenarios
+    (`data/scenario_maritime.json`, `data/scenario_border_awareness.json`).
+- CLI: `fuse`, `dossier`, `export`, `demo-fusion`.
+- Verification: `bench/fusion_evaluate.py` + `bench/fusion_goldset.json` added
+  to `bench/run_all.py` / `RESULTS.md`; fusion accuracy = 1.00 on the synthetic
+  goldset, gated in CI by `tests/test_fusion_bench.py`.
+- Eight new runnable demos in `examples/` (all exit 0).
+- Test suite grown from 29 to 145 tests.
+- Docs: `docs/FUSION.md`, `docs/INTEROP.md`; README + CA9 mapping updated.
+
+### Framing
+- The fusion layer is **defensive situational-awareness / force-protection
+  decision-support only** — explicitly not targeting, fire-control, kill-chain,
+  or strike support.
+
 ## [0.3.0] — 2026-07-02
 
 ### Added

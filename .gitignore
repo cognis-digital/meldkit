@@ -9,4 +9,7 @@ dist/
 venv/
 *.stix.json
 out_*.json
+.cache/
+examples/cop_*.html
+cop_*.html
 .DS_Store

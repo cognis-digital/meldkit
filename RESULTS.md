@@ -19,9 +19,29 @@ Environment: CPython 3.14.0 on Windows/AMD64. Deterministic inputs and default o
 
 | Reports | Mentions | Extract (s) | Resolve (s) | Graph (s) | Index (s) | Query (ms) | Reports/s |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 500 | 3,000 | 0.0176 | 0.0072 | 0.0444 | 0.0112 | 3.13 | 6,225 |
-| 2,000 | 12,000 | 0.0922 | 0.0515 | 0.2457 | 0.0454 | 15.576 | 4,600 |
-| 8,000 | 48,000 | 0.3212 | 0.2287 | 1.0462 | 0.3005 | 64.949 | 4,218 |
+| 500 | 3,000 | 0.0174 | 0.005 | 0.0314 | 0.0078 | 2.049 | 8,120 |
+| 2,000 | 12,000 | 0.0674 | 0.0182 | 0.1304 | 0.0454 | 24.418 | 7,650 |
+| 8,000 | 48,000 | 0.282 | 0.0952 | 0.5593 | 0.1391 | 32.188 | 7,437 |
+
+## Multi-INT fusion accuracy (bundled synthetic scenario)
+
+Fused 13 observations across 6 INT disciplines into 5 resolved entities.
+
+| Fusion task | Metric |
+|---|---|
+| Cross-source entity resolution accuracy | 1.000 |
+| Corroboration band accuracy | 1.000 |
+| Cross-INT fusion correct (IMO-linked vessel) | True |
+| Force-protection keep-out recall | 1.000 |
+| Contradiction precision (clean scenario) | True |
+
+### Fusion performance (single-thread, stdlib only)
+
+| Observations | Entities | Resolve (s) | Assess (s) | Geofence (s) | Obs/s |
+|---:|---:|---:|---:|---:|---:|
+| 500 | 10 | 0.0052 | 0.0079 | 0.0007 | 36,342 |
+| 2,000 | 10 | 0.0182 | 0.0227 | 0.0048 | 43,709 |
+| 8,000 | 10 | 0.1744 | 0.044 | 0.0137 | 34,484 |
 
 ## Live feed coverage
 

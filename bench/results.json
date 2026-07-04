@@ -24,32 +24,72 @@
     {
       "reports": 500,
       "mentions": 3000,
-      "extract_s": 0.0176,
-      "resolve_s": 0.0072,
-      "graph_s": 0.0444,
-      "index_s": 0.0112,
-      "query_ms": 3.13,
-      "reports_per_s": 6225
+      "extract_s": 0.0174,
+      "resolve_s": 0.005,
+      "graph_s": 0.0314,
+      "index_s": 0.0078,
+      "query_ms": 2.049,
+      "reports_per_s": 8120
     },
     {
       "reports": 2000,
       "mentions": 12000,
-      "extract_s": 0.0922,
-      "resolve_s": 0.0515,
-      "graph_s": 0.2457,
+      "extract_s": 0.0674,
+      "resolve_s": 0.0182,
+      "graph_s": 0.1304,
       "index_s": 0.0454,
-      "query_ms": 15.576,
-      "reports_per_s": 4600
+      "query_ms": 24.418,
+      "reports_per_s": 7650
     },
     {
       "reports": 8000,
       "mentions": 48000,
-      "extract_s": 0.3212,
-      "resolve_s": 0.2287,
-      "graph_s": 1.0462,
-      "index_s": 0.3005,
-      "query_ms": 64.949,
-      "reports_per_s": 4218
+      "extract_s": 0.282,
+      "resolve_s": 0.0952,
+      "graph_s": 0.5593,
+      "index_s": 0.1391,
+      "query_ms": 32.188,
+      "reports_per_s": 7437
+    }
+  ],
+  "fusion_accuracy": {
+    "dataset": {
+      "observations": 13,
+      "entities": 5,
+      "disciplines": 6
+    },
+    "entity_resolution_accuracy": 1.0,
+    "corroboration_band_accuracy": 1.0,
+    "cross_source_fusion_correct": true,
+    "force_protection_recall": 1.0,
+    "contradiction_precision_ok": true,
+    "disciplines_fused": 6,
+    "min_disciplines_expected": 6
+  },
+  "fusion_performance": [
+    {
+      "observations": 500,
+      "entities": 10,
+      "resolve_s": 0.0052,
+      "assess_s": 0.0079,
+      "geofence_s": 0.0007,
+      "observations_per_s": 36342
+    },
+    {
+      "observations": 2000,
+      "entities": 10,
+      "resolve_s": 0.0182,
+      "assess_s": 0.0227,
+      "geofence_s": 0.0048,
+      "observations_per_s": 43709
+    },
+    {
+      "observations": 8000,
+      "entities": 10,
+      "resolve_s": 0.1744,
+      "assess_s": 0.044,
+      "geofence_s": 0.0137,
+      "observations_per_s": 34484
     }
   ],
   "feeds": {

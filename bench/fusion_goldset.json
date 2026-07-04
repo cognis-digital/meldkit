@@ -1,0 +1,18 @@
+{
+  "note": "Ground truth for the bundled synthetic multi-INT scenario (data/scenario_maritime.json). Used to measure fusion entity-resolution and force-protection alerting honestly, gated in CI.",
+  "expected_entities": [
+    {"canonical_contains": "Nightjar", "min_disciplines": 3, "expected_band": "strong"},
+    {"canonical_contains": "Small Craft A", "min_disciplines": 2},
+    {"canonical_contains": "Grey Ferry Logistics", "min_disciplines": 2}
+  ],
+  "resolution": {
+    "note": "the three sat-track sightings + OSINT + AIS registry entry all refer to ONE vessel (MV Nightjar / Nightjar, IMO 9111111)",
+    "vessel_imo_9111111_observation_count": 5
+  },
+  "force_protection": {
+    "keep_out_zone": "Naval Support Pier (keep-out 3km)",
+    "expect_inside_entities": ["Small Craft A", "EM-4471"]
+  },
+  "contradictions_expected": 0,
+  "min_disciplines_fused": 6
+}

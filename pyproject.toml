@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cognis-vanguard"
-version = "0.3.0"
+version = "0.4.0"
 description = "Self-hosted, edge-capable multi-INT fusion & agent orchestration (Cognis Vanguard)"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -21,7 +21,7 @@ Homepage = "https://cognis.digital"
 cognis-vanguard = "cognis_vanguard.cli:main"
 
 [tool.setuptools]
-packages = ["cognis_vanguard"]
+packages = ["cognis_vanguard", "cognis_vanguard.sources", "cognis_vanguard.fusion"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
