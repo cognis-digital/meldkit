@@ -14,6 +14,55 @@
 > **Built for:** SOLIC Accelerator / ONIX OTA — **Challenge Area 9: Open Topic (SOF enterprise).**
 > SOF teams must turn OSINT, signals metadata, captured media, and reporting into decisions **without cloud reachback**. Vanguard is an AI analytic node you *own*: it ingests, fuses, and reasons over intelligence entirely on your hardware — air-gapped if needed — with every output traceable to its sources.
 
+## Install
+
+**Prerequisite:** Python **3.9+** (no other runtime deps — pure stdlib). The
+one-command installers create a local `.venv` and install the `obsidia` CLI.
+Clone first: `git clone https://github.com/cognis-digital/cognis-vanguard && cd cognis-vanguard`
+
+<details open><summary><b>Windows (PowerShell)</b></summary>
+
+```powershell
+.\install.ps1
+.\.venv\Scripts\Activate.ps1      # activate this shell
+obsidia --help
+obsidia demo                      # end-to-end demo on bundled reporting
+```
+</details>
+
+<details open><summary><b>macOS</b></summary>
+
+```bash
+./install.sh
+source .venv/bin/activate         # activate this shell
+obsidia --help
+obsidia demo
+```
+</details>
+
+<details open><summary><b>Linux</b></summary>
+
+```bash
+./install.sh
+source .venv/bin/activate         # activate this shell
+obsidia --help
+obsidia demo
+```
+</details>
+
+<details><summary><b>Docker</b></summary>
+
+```bash
+docker build -t cognis-vanguard .
+docker run --rm cognis-vanguard --help
+docker run --rm cognis-vanguard demo        # any obsidia subcommand works
+```
+</details>
+
+The installers are idempotent (safe to re-run) and print next-steps on
+completion. `make install` / `make test` / `make demo` wrap the same flow on
+POSIX systems.
+
 ## What it does
 
 - 🧷 **Entity extraction** — regex indicators (IPv4, email, URL, SHA-256, crypto address, geo) + gazetteer named entities (orgs, persons, vessels, aliases).
