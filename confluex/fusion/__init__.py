@@ -1,4 +1,4 @@
-"""Obsidia — multi-INT fusion analytics package.
+"""Confluex — multi-INT fusion analytics package.
 
 Additive layer on top of the core extract/resolve/graph pipeline. Everything
 here is DEFENSIVE situational-awareness and force-protection decision-support:

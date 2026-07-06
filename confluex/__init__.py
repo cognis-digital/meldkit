@@ -1,4 +1,4 @@
-"""Obsidia — self-hosted, edge-capable multi-INT fusion & agent
+"""Confluex — self-hosted, edge-capable multi-INT fusion & agent
 orchestration for austere/disconnected environments.
 
 Ingests heterogeneous reporting, extracts and resolves entities, builds a

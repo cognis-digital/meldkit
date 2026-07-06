@@ -14,7 +14,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from obsidia.fusion import interop, scenario  # noqa: E402
+from confluex.fusion import interop, scenario  # noqa: E402
 
 D = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
 

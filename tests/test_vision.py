@@ -1,5 +1,5 @@
-from obsidia import smalltarget
-from obsidia.vision import (
+from confluex import smalltarget
+from confluex.vision import (
     DeterministicVisionProvider, OllamaVisionProvider, analyze_media,
 )
 

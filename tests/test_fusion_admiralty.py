@@ -1,5 +1,5 @@
-from obsidia.fusion import admiralty
-from obsidia.fusion.schema import Observation
+from confluex.fusion import admiralty
+from confluex.fusion.schema import Observation
 
 
 def _obs(rel="", cred=""):

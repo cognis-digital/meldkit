@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# Cross-platform (macOS / Linux) installer for Obsidia (cognis-vanguard).
+# Cross-platform (macOS / Linux) installer for Confluex (cognis-vanguard).
 # Idempotent: safe to re-run. Creates a local .venv and installs the CLI.
 set -e
 
@@ -53,15 +53,15 @@ else
 fi
 
 # 6. Verify the console script is callable.
-echo ">> Verifying installation: obsidia --help"
-"$HERE/.venv/bin/obsidia" --help >/dev/null
-echo ">> OK: 'obsidia' console script is installed and runnable."
+echo ">> Verifying installation: confluex --help"
+"$HERE/.venv/bin/confluex" --help >/dev/null
+echo ">> OK: 'confluex' console script is installed and runnable."
 
 # 7. Next steps.
 cat <<EOF
 
 ============================================================
- Obsidia (cognis-vanguard) is installed.
+ Confluex (cognis-vanguard) is installed.
 ============================================================
  Activate the virtual environment:
    bash / zsh :   source .venv/bin/activate
@@ -69,11 +69,11 @@ cat <<EOF
    csh / tcsh :   source .venv/bin/activate.csh
 
  Then run the CLI:
-   obsidia --help
-   obsidia demo                 # end-to-end demo on bundled reporting
-   obsidia demo-fusion          # full multi-INT fusion / COP demo
+   confluex --help
+   confluex demo                 # end-to-end demo on bundled reporting
+   confluex demo-fusion          # full multi-INT fusion / COP demo
 
  Or without activating:
-   .venv/bin/obsidia demo
+   .venv/bin/confluex demo
 ============================================================
 EOF

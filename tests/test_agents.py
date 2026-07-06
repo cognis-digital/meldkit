@@ -1,7 +1,7 @@
 import os
 
-from obsidia import extract
-from obsidia.agents import Orchestrator
+from confluex import extract
+from confluex.agents import Orchestrator
 
 D = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data"))
 

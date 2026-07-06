@@ -3,7 +3,7 @@
 Vanguard addresses a concrete SOF enterprise gap: **trustworthy AI analytics at
 the disconnected tactical edge.**
 
-| SOF need | Obsidia | Module |
+| SOF need | Confluex | Module |
 |---|---|---|
 | Fuse multi-source reporting into one picture | Provenance-tracked knowledge graph from OSINT/SIGINT-meta/MARINT reports | `graph`, `resolve` |
 | **Fuse six INT disciplines into a Common Operating Picture** | OSINT/SIGINT-meta/GEOINT/HUMINT/MASINT/STRUCTURED → common `Observation` schema → resolved entities, corroboration, tracks, COP | `fusion.*` |

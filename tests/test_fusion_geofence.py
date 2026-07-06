@@ -1,5 +1,5 @@
-from obsidia.fusion import geofence
-from obsidia.fusion.schema import Observation
+from confluex.fusion import geofence
+from confluex.fusion.schema import Observation
 
 
 def _o(entity, lat, lon, ts="2026-01-01T00:00:00Z", etype="vessel"):

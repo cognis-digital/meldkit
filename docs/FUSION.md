@@ -1,6 +1,6 @@
 # Multi-INT Fusion Layer
 
-The `obsidia.fusion` package turns heterogeneous intelligence reporting
+The `confluex.fusion` package turns heterogeneous intelligence reporting
 into one source-cited, corroboration-graded **Common Operating Picture (COP)**
 for situational awareness and force protection.
 
@@ -98,24 +98,24 @@ transparent heuristic, not an official conversion.
 
 ```bash
 # Ingest a scenario and print the COP; optionally write the HTML dashboard.
-obsidia fuse --scenario data/scenario_maritime.json --html cop.html
+confluex fuse --scenario data/scenario_maritime.json --html cop.html
 
 # Per-entity dossiers (all, or filtered by name/id).
-obsidia dossier --entity Nightjar
+confluex dossier --entity Nightjar
 
 # Interop exports.
-obsidia export --format stix    > out.stix.json
-obsidia export --format csv     > observations.csv
-obsidia export --format symbols > entities.symbols.json
+confluex export --format stix    > out.stix.json
+confluex export --format csv     > observations.csv
+confluex export --format symbols > entities.symbols.json
 
 # One-shot demo on the bundled maritime scenario.
-obsidia demo-fusion
+confluex demo-fusion
 ```
 
 Or from Python:
 
 ```python
-from obsidia.fusion import scenario, cop, interop
+from confluex.fusion import scenario, cop, interop
 res = scenario.run_scenario(scenario.load_scenario("data/scenario_maritime.json"))
 print(cop.render_text(res))
 open("cop.html", "w", encoding="utf-8").write(cop.render_html(res))

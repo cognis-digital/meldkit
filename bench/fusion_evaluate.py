@@ -14,7 +14,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from obsidia.fusion import (  # noqa: E402
+from confluex.fusion import (  # noqa: E402
     adapters_int, corroborate, entities, geofence, scenario,
 )
 

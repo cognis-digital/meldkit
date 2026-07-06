@@ -5,11 +5,11 @@ from __future__ import annotations
 import json
 import os
 
-from obsidia import extract as extractmod
-from obsidia import graph as graphmod
-from obsidia import stix
-from obsidia.index import TfidfIndex
-from obsidia.resolve import resolve
+from confluex import extract as extractmod
+from confluex import graph as graphmod
+from confluex import stix
+from confluex.index import TfidfIndex
+from confluex.resolve import resolve
 
 from .metrics import mrr, precision_at_k, prf, recall_at_k
 

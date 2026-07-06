@@ -1,4 +1,4 @@
-"""Live feed integration for Obsidia.
+"""Live feed integration for Confluex.
 
 Pulls keyless OSINT / situational-awareness / threat feeds and materializes them
 as Vanguard *reports* (id, timestamp, source, text) that flow straight into

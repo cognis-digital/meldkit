@@ -95,7 +95,7 @@ def to_symbol_agnostic(resolved) -> dict:
     """A NATO-symbol-agnostic entity schema. entity_type + neutral affiliation,
     explicitly WITHOUT any APP-6/2525 symbol identification code."""
     return {
-        "schema": "obsidia/symbol-agnostic-entity/1.0",
+        "schema": "confluex/symbol-agnostic-entity/1.0",
         "note": "symbol-agnostic by design: carries no military-symbology "
                 "identification codes; situational-awareness descriptors only, "
                 "not a targeting overlay",
@@ -117,10 +117,10 @@ def to_stix(observations, resolved, created: str = _STIX_TS) -> dict:
     x-cognis-entity SCOs + sighting relationships. Documented profile in
     docs/INTEROP.md."""
     objects = []
-    ident = _sid("identity", "Obsidia Fusion")
+    ident = _sid("identity", "Confluex Fusion")
     objects.append({"type": "identity", "spec_version": "2.1", "id": ident,
                     "created": created, "modified": created,
-                    "name": "Obsidia Fusion", "identity_class": "system"})
+                    "name": "Confluex Fusion", "identity_class": "system"})
 
     for o in observations:
         objects.append({
@@ -153,7 +153,7 @@ def to_stix(observations, resolved, created: str = _STIX_TS) -> dict:
                 "relationship_type": "derived-from",
                 "source_ref": eid, "target_ref": _sid("observed-data", oid),
             })
-    return {"type": "bundle", "id": _sid("bundle", "obsidia-fusion:" + created),
+    return {"type": "bundle", "id": _sid("bundle", "confluex-fusion:" + created),
             "objects": objects}
 
 

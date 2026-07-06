@@ -5,7 +5,7 @@ Adheres to [Semantic Versioning](https://semver.org/).
 ## [0.4.0] — 2026-07-03
 
 ### Added
-- **Multi-INT fusion layer** (`obsidia.fusion`), additive and offline:
+- **Multi-INT fusion layer** (`confluex.fusion`), additive and offline:
   - **Common `Observation` schema** (`schema.py`) that six INT disciplines
     normalize to (OSINT / SIGINT-metadata / GEOINT / HUMINT / MASINT / IMINT /
     STRUCTURED), with deterministic BLAKE2b ids and a down-projection to the
@@ -59,7 +59,7 @@ Adheres to [Semantic Versioning](https://semver.org/).
 ## [0.2.0] — 2026-07-01
 
 ### Added
-- **Live feed integration** (`obsidia.sources`): 14 keyless OSINT /
+- **Live feed integration** (`confluex.sources`): 14 keyless OSINT /
   situational-awareness / threat feeds (GDELT, ReliefWeb, USGS, GDACS, CISA
   advisories, defense news RSS, DVIDS, abuse.ch IOC feeds) materialized into
   Vanguard reports that flow into extraction, the knowledge graph, and retrieval.
@@ -85,7 +85,7 @@ Initial public release.
 - Pluggable reasoning backend: deterministic offline provider (default) and
   optional local Ollama provider (self-hosted open-weight models) — `llm`.
 - STIX 2.1 export with deterministic IDs and source references — `stix`.
-- CLI (`obsidia`) with `demo`, `query`, `extract`, `correlate`, `graph`.
+- CLI (`confluex`) with `demo`, `query`, `extract`, `correlate`, `graph`.
 - Zero-dependency, offline / air-gap capable.
 - Verification harness (`bench/`): ground-truth extraction/resolution/retrieval
   metrics + performance benchmarks; results in `RESULTS.md`.

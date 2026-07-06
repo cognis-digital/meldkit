@@ -1,6 +1,6 @@
 import json
 
-from obsidia import cli
+from confluex import cli
 
 
 def test_demo_fusion_runs(capsys):

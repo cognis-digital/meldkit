@@ -18,7 +18,7 @@ _RAW = [
      "https://api.gdeltproject.org/api/v2/doc/doc?query=narcotics%20trafficking&mode=artlist&format=json&maxrecords=75",
      True, "gdelt", "https://blog.gdeltproject.org"),
     ("reliefweb_reports", "situational",
-     "https://api.reliefweb.int/v1/reports?appname=obsidia&profile=list&limit=75&sort[]=date:desc",
+     "https://api.reliefweb.int/v1/reports?appname=confluex&profile=list&limit=75&sort[]=date:desc",
      True, "reliefweb", "https://apidoc.reliefweb.int"),
     ("usgs_significant", "situational",
      "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson",

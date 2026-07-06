@@ -1,6 +1,6 @@
 # Live Feeds
 
-Obsidia integrates **14 keyless live feeds** that materialize into
+Confluex integrates **14 keyless live feeds** that materialize into
 reports (`{id, timestamp, source, text}`) and flow through the full pipeline
 (extraction → resolution → knowledge graph → retrieval → orchestration). Every
 fetch caches to disk, so ingestion also runs **offline / air-gapped**.
@@ -26,16 +26,16 @@ fetch caches to disk, so ingestion also runs **offline / air-gapped**.
 ## Usage
 
 ```bash
-obsidia sources-list                       # browse feeds
-obsidia sources-stats                       # coverage json
-obsidia sources-ingest --cache .cache       # fetch -> reports
-obsidia sources-ingest --offline --cache .cache   # air-gapped replay
-obsidia demo-live --query "go-fast vessel near port"   # ingest + answer
+confluex sources-list                       # browse feeds
+confluex sources-stats                       # coverage json
+confluex sources-ingest --cache .cache       # fetch -> reports
+confluex sources-ingest --offline --cache .cache   # air-gapped replay
+confluex demo-live --query "go-fast vessel near port"   # ingest + answer
 ```
 
 ```python
-from obsidia.sources import HttpClient, collect
-from obsidia.agents import Orchestrator
+from confluex.sources import HttpClient, collect
+from confluex.agents import Orchestrator
 reports, errors = collect(HttpClient(cache_dir=".cache"))
 orch = Orchestrator(reports, {})
 print(orch.answer("maritime narcotics trafficking")["answer"])

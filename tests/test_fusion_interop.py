@@ -2,8 +2,8 @@ import csv
 import io
 import json
 
-from obsidia.fusion import entities, interop
-from obsidia.fusion.schema import Observation
+from confluex.fusion import entities, interop
+from confluex.fusion.schema import Observation
 
 
 def _sample():

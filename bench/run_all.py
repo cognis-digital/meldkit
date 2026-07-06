@@ -10,7 +10,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from bench import benchmark, evaluate, fusion_evaluate  # noqa: E402
-from obsidia.sources import ingest as vfeeds  # noqa: E402
+from confluex.sources import ingest as vfeeds  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -38,7 +38,7 @@ def render_md(res) -> str:
     r = a["retrieval"]
     env = res["environment"]
     L = []
-    L.append("# Obsidia — Verification Results\n")
+    L.append("# Confluex — Verification Results\n")
     L.append("Reproduce with: `python bench/run_all.py` (regenerates this file).\n")
     L.append(f"Environment: {env['implementation']} {env['python']} on "
              f"{env['system']}/{env['machine']}. Deterministic inputs and default offline provider.\n")

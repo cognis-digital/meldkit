@@ -3,9 +3,9 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "obsidia"
+name = "confluex"
 version = "0.4.0"
-description = "Self-hosted, edge-capable multi-INT fusion & agent orchestration (Obsidia)"
+description = "Self-hosted, edge-capable multi-INT fusion & agent orchestration (Confluex)"
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{ name = "Cognis Digital LLC" }]
@@ -18,10 +18,10 @@ dependencies = []
 Homepage = "https://cognis.digital"
 
 [project.scripts]
-obsidia = "obsidia.cli:main"
+confluex = "confluex.cli:main"
 
 [tool.setuptools]
-packages = ["obsidia", "obsidia.sources", "obsidia.fusion"]
+packages = ["confluex", "confluex.sources", "confluex.fusion"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

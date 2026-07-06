@@ -233,7 +233,7 @@ ul{{list-style:none;margin:0;padding:0}} li{{padding:6px 4px;border-bottom:1px s
 .tag{{display:inline-block;background:#312e81;color:#c7d2fe;font-size:10px;padding:2px 8px;border-radius:99px}}
 </style></head><body>
 <header><h1>🟣 {e(title)}</h1>
-<div class="sub">Obsidia — multi-INT fusion Common Operating Picture ·
+<div class="sub">Confluex — multi-INT fusion Common Operating Picture ·
 <span class="tag">DEFENSIVE · situational awareness &amp; force protection · not targeting</span></div></header>
 <div class="wrap">
 <div class="card kpis">
@@ -259,6 +259,6 @@ ul{{list-style:none;margin:0;padding:0}} li{{padding:6px 4px;border-bottom:1px s
 <div class="card" style="margin-top:16px"><h2>Contradictions</h2><ul>{contra}</ul></div>
 </div>
 </div>
-<div class="foot">Generated offline by Obsidia · every item traces to cited
+<div class="foot">Generated offline by Confluex · every item traces to cited
 observations · decision-support only, analyst corroboration required · © Cognis Digital LLC</div>
 </div></body></html>"""

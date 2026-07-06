@@ -1,4 +1,4 @@
-"""Obsidia CLI."""
+"""Confluex CLI."""
 
 from __future__ import annotations
 
@@ -210,9 +210,9 @@ def cmd_demo_live(args):
 
 
 def build_parser():
-    p = argparse.ArgumentParser(prog="obsidia",
-                                description="Obsidia — self-hosted multi-INT fusion & orchestration")
-    p.add_argument("--version", action="version", version=f"obsidia {__version__}")
+    p = argparse.ArgumentParser(prog="confluex",
+                                description="Confluex — self-hosted multi-INT fusion & orchestration")
+    p.add_argument("--version", action="version", version=f"confluex {__version__}")
     sub = p.add_subparsers(dest="command", required=True)
 
     d = sub.add_parser("demo", help="end-to-end demo on bundled reporting")

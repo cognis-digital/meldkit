@@ -23,10 +23,10 @@ def _sid(objtype: str, value: str) -> str:
 
 def bundle_from_graph(graph, created: str = DEFAULT_TS) -> dict:
     objects = []
-    identity_id = _sid("identity", "Obsidia")
+    identity_id = _sid("identity", "Confluex")
     objects.append({"type": "identity", "spec_version": "2.1", "id": identity_id,
                     "created": created, "modified": created,
-                    "name": "Obsidia", "identity_class": "system"})
+                    "name": "Confluex", "identity_class": "system"})
 
     def common(o):
         o.setdefault("spec_version", "2.1")
@@ -57,7 +57,7 @@ def bundle_from_graph(graph, created: str = DEFAULT_TS) -> dict:
             "source_ref": _sid("indicator", _rev(graph, edge.source)),
             "target_ref": _sid("indicator", _rev(graph, edge.target)),
         }))
-    return {"type": "bundle", "id": _sid("bundle", "obsidia:" + created), "objects": objects}
+    return {"type": "bundle", "id": _sid("bundle", "confluex:" + created), "objects": objects}
 
 
 def _rev(graph, entity_id):

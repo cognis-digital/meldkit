@@ -1,5 +1,5 @@
-from obsidia.fusion import adapters_int
-from obsidia.fusion.adapters_int import (
+from confluex.fusion import adapters_int
+from confluex.fusion.adapters_int import (
     geoint, humint, masint, normalize, osint, sigint_meta, structured,
 )
 

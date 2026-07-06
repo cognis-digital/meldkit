@@ -1,5 +1,5 @@
-from obsidia.fusion import entities
-from obsidia.fusion.schema import Observation
+from confluex.fusion import entities
+from confluex.fusion.schema import Observation
 
 
 def _o(entity, etype="vessel", disc="GEOINT", src="s", ts="2026-01-01T00:00:00Z", **attrs):

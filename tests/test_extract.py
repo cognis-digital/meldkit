@@ -1,6 +1,6 @@
 import os
 
-from obsidia import extract
+from confluex import extract
 
 D = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "data"))
 

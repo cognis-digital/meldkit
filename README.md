@@ -1,4 +1,4 @@
-<h1 align="center">🟣 Obsidia</h1>
+<h1 align="center">🟣 Confluex</h1>
 <p align="center"><b>Self-hosted, edge-capable multi-INT fusion &amp; agent orchestration</b><br>
 <i>Turn heterogeneous reporting into a source-cited, provenance-tracked picture — offline, at the tactical edge.</i></p>
 
@@ -17,7 +17,7 @@
 ## Install
 
 **Prerequisite:** Python **3.9+** (no other runtime deps — pure stdlib). The
-one-command installers create a local `.venv` and install the `obsidia` CLI.
+one-command installers create a local `.venv` and install the `confluex` CLI.
 Clone first: `git clone https://github.com/cognis-digital/cognis-vanguard && cd cognis-vanguard`
 
 <details open><summary><b>Windows (PowerShell)</b></summary>
@@ -25,8 +25,8 @@ Clone first: `git clone https://github.com/cognis-digital/cognis-vanguard && cd 
 ```powershell
 .\install.ps1
 .\.venv\Scripts\Activate.ps1      # activate this shell
-obsidia --help
-obsidia demo                      # end-to-end demo on bundled reporting
+confluex --help
+confluex demo                      # end-to-end demo on bundled reporting
 ```
 </details>
 
@@ -35,8 +35,8 @@ obsidia demo                      # end-to-end demo on bundled reporting
 ```bash
 ./install.sh
 source .venv/bin/activate         # activate this shell
-obsidia --help
-obsidia demo
+confluex --help
+confluex demo
 ```
 </details>
 
@@ -45,8 +45,8 @@ obsidia demo
 ```bash
 ./install.sh
 source .venv/bin/activate         # activate this shell
-obsidia --help
-obsidia demo
+confluex --help
+confluex demo
 ```
 </details>
 
@@ -55,7 +55,7 @@ obsidia demo
 ```bash
 docker build -t cognis-vanguard .
 docker run --rm cognis-vanguard --help
-docker run --rm cognis-vanguard demo        # any obsidia subcommand works
+docker run --rm cognis-vanguard demo        # any confluex subcommand works
 ```
 </details>
 
@@ -76,7 +76,7 @@ POSIX systems.
 
 ## 🧩 Multi-INT fusion & Common Operating Picture (v0.4)
 
-The `obsidia.fusion` layer normalizes **six INT disciplines** into one
+The `confluex.fusion` layer normalizes **six INT disciplines** into one
 common `Observation` schema and fuses them into a source-cited, corroboration-
 graded **Common Operating Picture** — for **situational awareness and force
 protection only**.
@@ -97,10 +97,10 @@ protection only**.
   entity schema** (no MIL-STD-2525/APP-6 codes — descriptive, not a targeting overlay).
 
 ```bash
-obsidia fuse --scenario data/scenario_maritime.json --html cop.html  # COP + dashboard
-obsidia dossier --entity Nightjar                                    # entity dossier
-obsidia export --format stix > out.stix.json                         # interop
-obsidia demo-fusion                                                  # one-shot demo
+confluex fuse --scenario data/scenario_maritime.json --html cop.html  # COP + dashboard
+confluex dossier --entity Nightjar                                    # entity dossier
+confluex export --format stix > out.stix.json                         # interop
+confluex demo-fusion                                                  # one-shot demo
 ```
 
 > **Not targeting.** This fuses intelligence for *understanding* and *force
@@ -117,28 +117,28 @@ graph, and retrieval. Fetches cache to disk for **offline / air-gap** replay.
 See [`docs/FEEDS.md`](docs/FEEDS.md).
 
 ```bash
-obsidia sources-stats                              # feed coverage
-obsidia sources-ingest --feeds usgs_significant,feodo_iocs
-obsidia demo-live --query "maritime narcotics trafficking vessel"
+confluex sources-stats                              # feed coverage
+confluex sources-ingest --feeds usgs_significant,feodo_iocs
+confluex demo-live --query "maritime narcotics trafficking vessel"
 ```
 
 ## Quick start
 
 ```bash
-git clone https://github.com/cognis-digital/obsidia
-cd obsidia
-python -m obsidia demo --query "who controls wallet addr-B1" --stix out.stix.json
+git clone https://github.com/cognis-digital/confluex
+cd confluex
+python -m confluex demo --query "who controls wallet addr-B1" --stix out.stix.json
 ```
 
 ```bash
-obsidia query --reports data/sample_reports.json --gazetteer data/gazetteer.json \
+confluex query --reports data/sample_reports.json --gazetteer data/gazetteer.json \
                       --q "vessel rendezvous grey ferry logistics"
-obsidia correlate --reports data/sample_reports.json --gazetteer data/gazetteer.json --value addr-B1
-obsidia graph --reports data/sample_reports.json --gazetteer data/gazetteer.json --stix
+confluex correlate --reports data/sample_reports.json --gazetteer data/gazetteer.json --value addr-B1
+confluex graph --reports data/sample_reports.json --gazetteer data/gazetteer.json --stix
 ```
 
 ```python
-from obsidia.agents import Orchestrator
+from confluex.agents import Orchestrator
 orch = Orchestrator(reports, gazetteer)          # optional: provider=OllamaProvider("llama3")
 result = orch.answer("who controls wallet addr-B1")   # source-cited, with execution trace
 ```
